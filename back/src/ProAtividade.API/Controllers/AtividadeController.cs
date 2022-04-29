@@ -31,9 +31,9 @@ namespace back.src.ProAtividade.API.Controllers
         }        
 
         [HttpPost]
-        public Atividade Post(Atividade atividade)
+        public IEnumerable<Atividade> Post(Atividade atividade)
         {
-            return atividade; 
+            return Atividades.Append<Atividade>(atividade); 
         }
 
         [HttpPut]
