@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using back.src.ProAtividade.API.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,9 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 IConfiguration Configuration = builder.Configuration; 
 
 // Add services to the container.
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers()
+                .AddJsonOptions
+                (
+                    options => {options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());}
+                );
 builder.Services.AddDbContext<DataContext>
 (
     options => options.UseSqlite(Configuration.GetConnectionString("Default"))
