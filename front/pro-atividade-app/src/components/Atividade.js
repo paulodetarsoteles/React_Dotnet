@@ -4,12 +4,10 @@ export default function Atividade(props) {
 
   function prioridadeLabel(param){
     switch(param){
-      case '1': 
-        return 'Baixa'; 
-      case '2': 
-        return 'Media'; 
-      case '3': 
-        return 'Alta'; 
+      case 'Baixa': 
+      case 'Media': 
+      case 'Alta': 
+        return param; 
       default: 
         return 'Media'; 
     }
@@ -17,11 +15,11 @@ export default function Atividade(props) {
 
   function prioridadeStyle(param, icone){
     switch(param){
-      case '1': 
+      case 'Baixa': 
         return icone ? 'smile' : 'success'; 
-      case '2': 
+      case 'Normal': 
         return icone ? 'meh' : 'warning'; 
-      case '3': 
+      case 'Alta': 
         return icone ? 'frown' : 'danger'; 
       default: 
         return icone ? 'meh' : 'warning';

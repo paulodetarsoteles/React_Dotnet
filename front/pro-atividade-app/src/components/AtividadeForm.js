@@ -72,10 +72,10 @@ export default function AtividadeForm(props) {
             id="prioridade" 
             className="form-select"
           >
-            <option defaultValue="0">Selecione...</option>
-            <option value="1">Baixa</option>
-            <option value="2">Normal</option>
-            <option value="3">Alta</option>
+            <option defaultValue="Media">Selecione...</option>
+            <option value="Baixa">Baixa</option>
+            <option value="Media">Normal</option>
+            <option value="Alta">Alta</option>
           </select>
         </div>
         <div className="col-md-12">

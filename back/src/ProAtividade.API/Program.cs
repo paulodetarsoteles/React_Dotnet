@@ -8,6 +8,7 @@ IConfiguration Configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(); 
 builder.Services.AddControllers()
                 .AddJsonOptions
                 (
@@ -25,6 +26,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()); 
 }
 
 app.UseHttpsRedirection();
@@ -32,5 +34,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(option => option.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()); 
 
 app.Run();
