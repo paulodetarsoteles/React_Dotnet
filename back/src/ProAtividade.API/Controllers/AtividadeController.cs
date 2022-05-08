@@ -27,16 +27,16 @@ namespace back.src.ProAtividade.API.Controllers
         [HttpGet("{id}")]
         public Atividade Get(int id)
         {
-            return context.Atividades.FirstOrDefault(ativ => ativ.Id == id) ; 
+            return context.Atividades.FirstOrDefault(ativ => ativ.Id == id); 
         }        
 
         [HttpPost]
-        public IEnumerable<Atividade> Post(Atividade atividade)
+        public Atividade Post(Atividade atividade)
         {
             context.Atividades.Add(atividade); 
             if(context.SaveChanges() > 0)
             {
-                return context.Atividades; 
+                return context.Atividades.FirstOrDefault(ativ => ativ.Id == atividade.Id); 
             } 
             else 
             {
