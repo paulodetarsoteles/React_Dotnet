@@ -14,7 +14,16 @@ function App() {
   
   const handleAtividadeModal = () => setShowAtividadeModal(!showAtividadeModal);
 
-  const handleConfirmModal = () => setSmShowConfirmModal(!smShowConfirmModal);
+  const handleConfirmModal = (id) => {
+    if(id !== 0 & id !== undefined){
+      const atividade = atividades.filter((atividade) => atividade.id === id); 
+      setAtividade(atividade[0]);
+    }
+    else {
+      setAtividade({id:0}); 
+    }
+    setSmShowConfirmModal(!smShowConfirmModal); 
+  }
 
   const pegaTodasAtividades = async () => {
     const response = await api.get('atividade');
@@ -60,6 +69,7 @@ function App() {
       const atividadesFiltradas = atividades.filter((atividade) => atividade.id !== id); 
       setAtividades([...atividadesFiltradas]); 
     }
+    handleConfirmModal(0); 
   }
 
   return (
@@ -109,7 +119,7 @@ function App() {
             <i className="fas fa-exclamation me-2"></i>
             Excluir
           </button>
-          <button className="btn btn-outline-light me-2" onClick={() => handleConfirmModal}>
+          <button className="btn btn-outline-light me-2" onClick={() => handleConfirmModal(0)}>
             Cancelar
           </button>
         </Modal.Footer>

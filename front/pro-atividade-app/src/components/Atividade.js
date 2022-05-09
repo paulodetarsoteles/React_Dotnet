@@ -54,7 +54,7 @@ export default function Atividade(props) {
             Editar
           </button>
           <button className="btn btn-sm btn-outline-danger me-2" 
-                  onClick={() => props.handleConfirmModal()}>
+                  onClick={() => props.handleConfirmModal(props.ativ.id)}>
             <i className="fas fa-trash me-2"></i>
             Deletar
           </button>
