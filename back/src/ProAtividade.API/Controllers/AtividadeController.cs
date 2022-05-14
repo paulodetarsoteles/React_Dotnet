@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using back.src.ProAtividade.API.Data;
-using back.src.ProAtividade.API.Models;
+using back.src.ProAtividade.Data.Context;
+using back.src.ProAtividade.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace back.src.ProAtividade.API.Controllers

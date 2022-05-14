@@ -12,6 +12,8 @@
           "Microsoft.EntityFrameworkCore.Design": "6.0.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.4",
+          "ProAtividade.Data": "1.0.0",
+          "ProAtividade.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -363,6 +365,21 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "6.0.0"
         }
+      },
+      "ProAtividade.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.4",
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.4",
+          "ProAtividade.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ProAtividade.Data.dll": {}
+        }
+      },
+      "ProAtividade.Domain/1.0.0": {
+        "runtime": {
+          "ProAtividade.Domain.dll": {}
+        }
       }
     }
   },
@@ -630,6 +647,16 @@
       "sha512": "sha512-zaJsHfESQvJ11vbXnNlkrR46IaMULk/gHxYsJphzSF+07kTjPHv+Oc14w6QEOfo3Q4hqLJgStUaYB9DBl0TmWg==",
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
+    },
+    "ProAtividade.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProAtividade.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

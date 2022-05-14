@@ -543,6 +543,31 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "ProAtividade.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.4",
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.4",
+          "ProAtividade.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ProAtividade.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProAtividade.Data.dll": {}
+        }
+      },
+      "ProAtividade.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ProAtividade.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProAtividade.Domain.dll": {}
+        }
       }
     }
   },
@@ -1352,6 +1377,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "ProAtividade.Data/1.0.0": {
+      "type": "project",
+      "path": "../ProAtividade.Data/ProAtividade.Data.csproj",
+      "msbuildProject": "../ProAtividade.Data/ProAtividade.Data.csproj"
+    },
+    "ProAtividade.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ProAtividade.Domain/ProAtividade.Domain.csproj",
+      "msbuildProject": "../ProAtividade.Domain/ProAtividade.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1360,6 +1395,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.4",
       "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.4",
+      "ProAtividade.Data >= 1.0.0",
+      "ProAtividade.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -1396,7 +1433,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Curso_React_ASPNET\\REACT_ASPNETCORE\\react_dotnet\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj": {
+              "projectPath": "C:\\Curso_React_ASPNET\\REACT_ASPNETCORE\\react_dotnet\\back\\src\\ProAtividade.Data\\ProAtividade.Data.csproj"
+            },
+            "C:\\Curso_React_ASPNET\\REACT_ASPNETCORE\\react_dotnet\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj": {
+              "projectPath": "C:\\Curso_React_ASPNET\\REACT_ASPNETCORE\\react_dotnet\\back\\src\\ProAtividade.Domain\\ProAtividade.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
