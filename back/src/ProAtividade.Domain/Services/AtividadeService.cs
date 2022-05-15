@@ -7,40 +7,108 @@ namespace ProAtividade.Domain.Services
     public class AtividadeService : IAtividadeService
     {
         private readonly IAtividadeRepo _atividadeRepo;
-        private readonly IGeralRepo _geralRepo;
-        public AtividadeService(IAtividadeRepo atividadeRepo, IGeralRepo geralRepo)
+        public AtividadeService(IAtividadeRepo atividadeRepo)
         {
-            _geralRepo = geralRepo;
             _atividadeRepo = atividadeRepo;
         }
-        public Task<Atividade> AdicionarAtividade(Atividade model)
+
+        public async Task<Atividade> AdicionarAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if(await _atividadeRepo.PegaPorTituloAsync(model.Titulo) != null)
+            {
+                throw new Exception("Já existe uma tividade com esse título"); 
+            } 
+            if(await _atividadeRepo.PegaPorIdAsync(model.Id) == null) 
+            {
+                _atividadeRepo.Adicionar(model); 
+                if(await _atividadeRepo.SalvarMudancasAsync())
+                {
+                    return model; 
+                }
+            }
+            return null; 
         }
 
-        public Task<Atividade> AtualizarAtividade(Atividade model)
+        public async Task<Atividade> AtualizarAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if(model.DataConclusao != null)
+            {
+                throw new Exception("Atividade já foi concluida"); 
+            }
+            if(await _atividadeRepo.PegaPorIdAsync(model.Id) == null) 
+            {
+                _atividadeRepo.Atualizar(model); 
+                if(await _atividadeRepo.SalvarMudancasAsync())
+                {
+                    return model; 
+                }
+            }
+            return null; 
         }
 
-        public Task<bool> ConcluirAtividade(Atividade model)
+        public async Task<bool> ConcluirAtividade(Atividade model)
         {
-            throw new NotImplementedException();
+            if(model != null)
+            {
+                model.Concluir(); 
+                _atividadeRepo.Atualizar<Atividade>(model); 
+                return await _atividadeRepo.SalvarMudancasAsync(); 
+            }
+            return false; 
         }
 
-        public Task<bool> DeletarAtividade(int atividadeId)
+        public async Task<bool> DeletarAtividade(int atividadeId)
         {
-            throw new NotImplementedException();
+            var atividade = await _atividadeRepo.PegaPorIdAsync(atividadeId); 
+            if(atividade == null)
+            {
+                throw new Exception("Atividade não existe ou já foi excluída"); 
+            }
+            else 
+            {
+                _atividadeRepo.Deletar(atividade); 
+            }
+            return await _atividadeRepo.SalvarMudancasAsync(); 
         }
 
-        public Task<Atividade> PegarAtividadePorIdAsync(int atividadeId)
+        public async Task<Atividade> PegarAtividadePorIdAsync(int atividadeId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var atividade = await _atividadeRepo.PegaPorIdAsync(atividadeId); 
+                if(atividade == null)
+                {
+                    throw new Exception("Atividade não encontrada"); 
+                }
+                else
+                {
+                    return atividade; 
+                }
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Atividade[]> PegarTodasAtividadesAsync()
+        public async Task<Atividade[]> PegarTodasAtividadesAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var atividades = await _atividadeRepo.PegaTodasAsync(); 
+                if(atividades == null)
+                {
+                    throw new Exception("Sem atividades"); 
+                }
+                else
+                {
+                    return atividades; 
+                }
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
