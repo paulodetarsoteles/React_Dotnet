@@ -17,7 +17,7 @@ export default function Atividade(props) {
     switch(param){
       case 'Baixa': 
         return icone ? 'smile' : 'success'; 
-      case 'Normal': 
+      case 'Media': 
         return icone ? 'meh' : 'warning'; 
       case 'Alta': 
         return icone ? 'frown' : 'danger'; 

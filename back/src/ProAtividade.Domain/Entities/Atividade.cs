@@ -6,10 +6,14 @@ namespace back.src.ProAtividade.Domain.Entities
         public string Titulo {get; set; }
         public string Descricao { get; set; }
         public DateTime DataCriacao { get; set; }
-        public DateTime DataConclusao { get; set; }
+        public DateTime? DataConclusao { get; set; }
         public Prioridade Prioridade { get; set; }
 
-        public Atividade() => DataCriacao = DateTime.Now; 
+        public Atividade() 
+        {
+            DataCriacao = DateTime.Now; 
+            DataConclusao = null; 
+        } 
 
         public Atividade(int id, string titulo, string descricao) : this()
         {
@@ -26,7 +30,7 @@ namespace back.src.ProAtividade.Domain.Entities
             } 
             else 
             {
-                throw new Exception($"Atividade concluida em: {DataConclusao.ToString("dd/MM/yyyy hh:mm")}"); 
+                throw new Exception($"Atividade concluida em: {DataConclusao?.ToString("dd/MM/yyyy hh:mm")}"); 
             }
         }
     }

@@ -73,7 +73,7 @@ export default function AtividadeForm(props) {
           >
             <option defaultValue="Media">Selecione...</option>
             <option value="Baixa">Baixa</option>
-            <option value="Media">Normal</option>
+            <option value="Media">Media</option>
             <option value="Alta">Alta</option>
           </select>
         </div>

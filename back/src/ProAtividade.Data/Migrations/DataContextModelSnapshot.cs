@@ -23,21 +23,19 @@ namespace ProAtividade.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DataConclusao")
+                    b.Property<DateTime?>("DataConclusao")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("Prioridade")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")
-                        .IsRequired()
                         .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");

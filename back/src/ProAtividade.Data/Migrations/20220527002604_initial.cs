@@ -15,10 +15,10 @@ namespace ProAtividade.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Titulo = table.Column<string>(type: "varchar(100)", nullable: false),
-                    Descricao = table.Column<string>(type: "varchar(255)", nullable: false),
+                    Titulo = table.Column<string>(type: "varchar(100)", nullable: true),
+                    Descricao = table.Column<string>(type: "varchar(255)", nullable: true),
                     DataCriacao = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DataConclusao = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DataConclusao = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Prioridade = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

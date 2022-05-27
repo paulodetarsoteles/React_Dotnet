@@ -35,7 +35,7 @@ namespace ProAtividade.Domain.Services
             {
                 throw new Exception("Atividade já foi concluida"); 
             }
-            if(await _atividadeRepo.PegaPorIdAsync(model.Id) == null) 
+            if(await _atividadeRepo.PegaPorIdAsync(model.Id) != null) 
             {
                 _atividadeRepo.Atualizar(model); 
                 if(await _atividadeRepo.SalvarMudancasAsync())

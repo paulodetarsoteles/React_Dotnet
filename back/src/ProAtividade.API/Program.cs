@@ -1,6 +1,10 @@
 using System.Text.Json.Serialization;
 using back.src.ProAtividade.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using ProAtividade.Data.Repositories;
+using ProAtividade.Domain.Interfaces.Repositories;
+using ProAtividade.Domain.Interfaces.Services;
+using ProAtividade.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration Configuration = builder.Configuration; 
@@ -9,6 +13,9 @@ IConfiguration Configuration = builder.Configuration;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(); 
+builder.Services.AddScoped<IAtividadeRepo, AtividadeRepo>(); 
+builder.Services.AddScoped<IGeralRepo, GeralRepo>(); 
+builder.Services.AddScoped<IAtividadeService, AtividadeService>(); 
 builder.Services.AddControllers()
                 .AddJsonOptions
                 (
